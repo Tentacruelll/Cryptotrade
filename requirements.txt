@@ -1,6 +1,4 @@
-setuptools
-wheel
-aiogram==3.4.1
+aiogram==2.25.2
 aiohttp
 matplotlib
 numpy
