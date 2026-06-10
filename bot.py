@@ -1,4 +1,3 @@
-cat > /mnt/user-data/outputs/bot.py << 'BOTEOF'
 import logging
 import aiohttp
 import sqlite3
