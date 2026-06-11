@@ -792,7 +792,6 @@ async def ca_amount_entered(message: types.Message, state: FSMContext):
         f"✅ <b>Confirm Buy</b>\n\n"
         f"🪙 {symbol}:  <b>{format_gram(coin_out)}</b>\n"
         f"💵 Price:  {format_price(price)}"
-"
         f"📊 {mcap_label}:  {format_mcap_val(mcap)}"
 \n"
         f"💎 Cost:  <b>{format_gram(gram_spent)} GRAM</b>\n"
@@ -869,18 +868,14 @@ async def quick_amount(callback: types.CallbackQuery, state: FSMContext):
         await callback.message.edit_text(
             f"✅ <b>Confirm Buy — {pct}%</b>\n\n"
             f"🪙 {symbol}:  <b>{format_gram(coin_out)}</b>\n"
-            f"💵 Price:  {format_price(price)}
-"
-            f"📊 {mcap_label}:  {format_mcap_val(mcap)}
-\n"
+            f"💵 Price:  {format_price(price)}"
+            f"📊 {mcap_label}:  {format_mcap_val(mcap)}\n"
             f"💎 Cost:  <b>{format_gram(gram_spent)} GRAM</b>\n"
             f"   ├ DEX fee:  {format_gram(dex_fee)} GRAM\n"
             f"   ├ Network:  {format_gram(net_fee)} GRAM\n"
             f"   └ Slippage:  -{slip:.2f}%",
             reply_markup=kb, parse_mode="HTML"
-        )
-
-    elif action == "sell":
+        elif action == "sell":
         held, avg_price, ca, avg_mcap = get_position(callback.from_user.id, symbol)
         if held <= 0: await callback.answer("❌ No position", show_alert=True); return
         coin_amount = held * pct / 100
@@ -903,13 +898,11 @@ async def quick_amount(callback: types.CallbackQuery, state: FSMContext):
         await callback.message.edit_text(
             f"✅ <b>Confirm Sell — {pct}%</b>\n\n"
             f"🪙 {symbol}:  <b>{format_gram(coin_amount)}</b>\n"
-            f"💵 Price:  {format_price(price)}
-"
+            f"💵 Price:  {format_price(price)}"
             f"💎 Receive:  <b>{format_gram(gram_received)} GRAM</b>\n\n"
             f"{'🟢' if pnl_pct>=0 else '🔴'} P&L:  <b>{pnl_pct:+.2f}% {arrow}</b>  {x_str}\n"
             f"📊 MCap:  {format_mcap_val(avg_mcap)} → {format_mcap_val(mcap or avg_mcap)}  {mc_chg}",
-            reply_markup=kb, parse_mode="HTML"
-        )
+            reply_markup=kb, parse_mode="HTML")
 
 # ─── SELL ─────────────────────────────────────────────────────────────────────
 
