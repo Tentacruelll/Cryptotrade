@@ -791,9 +791,9 @@ async def ca_amount_entered(message: types.Message, state: FSMContext):
     await message.answer(
         f"✅ <b>Confirm Buy</b>\n\n"
         f"🪙 {symbol}:  <b>{format_gram(coin_out)}</b>\n"
-        f"💵 Price:  {format_price(price)}
+        f"💵 Price:  {format_price(price)}"
 "
-        f"📊 {mcap_label}:  {format_mcap_val(mcap)}
+        f"📊 {mcap_label}:  {format_mcap_val(mcap)}"
 \n"
         f"💎 Cost:  <b>{format_gram(gram_spent)} GRAM</b>\n"
         f"   ├ DEX fee:  {format_gram(dex_fee)} GRAM\n"
