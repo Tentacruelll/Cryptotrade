@@ -3,3 +3,5 @@ aiohttp==3.8.6
 matplotlib
 numpy
 Pillow
+setuptools
+wheel
