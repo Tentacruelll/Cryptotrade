@@ -3,3 +3,4 @@ aiohttp==3.8.6
 matplotlib
 numpy
 Pillow
+psycopg2-binary
